@@ -19,32 +19,28 @@ jobs:
   job-ub1:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Print date
         run: |
-          echo Dummy sleep
+          sleep 5
           date +"%Y%M%d %H%m"
   job-win:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Print date
         run: |
           echo Dummy sleep
-          echo "%DATE%%TIME%"
+          Get-Date -Format "yyyyMMdd HHmmK"
   job-mac:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Print date
         run: |
-          echo Dummy sleep
+          sleep 10
           date +"%Y%M%d %H%m"
   job-ub2:
     needs: [job-ub1, job-win, job-mac]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: Print date
         run: |
           echo Dummy sleep
