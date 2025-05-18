@@ -23,7 +23,7 @@ jobs:
       - name: Print date
         run: |
           echo Displaying Date
-          date +"%Y%M%d %H%m"
+          date +"%Y%M%d %H%m %S"
   job-win:
     needs: [job-ub1]
     runs-on: windows-latest
@@ -31,19 +31,19 @@ jobs:
       - name: Print date
         run: |
           echo Displaying Date
-          Get-Date -Format "yyyyMMdd HHmmK"
+          Get-Date -Format "yyyyMMdd HHmmss"
   job-mac:
     runs-on: macos-latest
     steps:
       - name: Print date
         run: |
           echo Displaying Date
-          date +"%Y%M%d %H%m"
+          date +"%Y%M%d %H%m %S"
   job-ub2:
     needs: [job-ub1, job-win, job-mac]
     runs-on: ubuntu-latest
     steps:
       - name: Last step
-        run: echo Last
+        run: date +"%Y%M%d %H%m %S"
 
                     
