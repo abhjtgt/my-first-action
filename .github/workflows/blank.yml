@@ -17,32 +17,33 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   job-ub1:
+    needs: job-mac
     runs-on: ubuntu-latest
     steps:
       - name: Print date
         run: |
-          sleep 5
+          echo Displaying Date
           date +"%Y%M%d %H%m"
   job-win:
+    needs: [job-ub1]
     runs-on: windows-latest
     steps:
       - name: Print date
         run: |
-          echo Dummy sleep
+          echo Displaying Date
           Get-Date -Format "yyyyMMdd HHmmK"
   job-mac:
     runs-on: macos-latest
     steps:
       - name: Print date
         run: |
-          sleep 10
+          echo Displaying Date
           date +"%Y%M%d %H%m"
   job-ub2:
     needs: [job-ub1, job-win, job-mac]
     runs-on: ubuntu-latest
     steps:
-      - name: Print date
-        run: |
-          echo Dummy sleep
-          echo Last
-          
+      - name: Last step
+        run: echo Last
+
+                    
