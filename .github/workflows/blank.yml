@@ -16,9 +16,37 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  job-ub:
+  job-ub1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Print date
-        run: date +"%Y%M%d %H%m"
+        run: |
+          echo Dummy sleep
+          date +"%Y%M%d %H%m"
+  job-win:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print date
+        run: |
+          echo Dummy sleep
+          echo "%DATE%%TIME%"
+  job-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print date
+        run: |
+          echo Dummy sleep
+          date +"%Y%M%d %H%m"
+  job-ub2:
+    needs: [job-ub1, job-win, job-mac]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Print date
+        run: |
+          echo Dummy sleep
+          echo Last
+          
