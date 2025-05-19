@@ -19,13 +19,10 @@ jobs:
       run: ls -lrt 
     - name: upload linux
       uses: actions/upload-artifact@v4.6.2
-        with:
-          name: linux
-          path: ${{ env.FILE_NAME }}
-          retention-days: 5
-          compression-level: 6
-      Available Options:
-        warn: Output a warning but do not fail the action
-        error: Fail the action with an error message
-        ignore: Do not output any warnings or errors, the action does not fail
+      with:
+        name: linux
+        path: ${{ env.FILE_NAME }}
+        retention-days: 5
+        compression-level: 6
         overwrite: false
+      
