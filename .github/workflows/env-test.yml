@@ -37,6 +37,7 @@ jobs:
           echo "GITHUB_PATH: ${{ github.path }}"
           echo "NAME: ${{env.name}}"
           echo "RUNNER_OS: ${{env.RUNNER_OS}}"
+          echo "USERNAME: ${{env.USERNAME}}"
 
 
         
