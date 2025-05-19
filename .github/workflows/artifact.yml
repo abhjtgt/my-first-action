@@ -1,0 +1,19 @@
+name: artifact
+on: [push]
+env: 
+  FILE_NAME: hello-server
+jobs:
+  build:
+    name: build go ${{env.FILE_NAME}}
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v4.2.2
+
+    - name: build ${{env.FILE_NAME}} for linux
+      run: go build ${{ env.FILE_NAME }}.go
+    - name: build ${{env.FILE_NAME}} for windows 
+      run: GOOS=windows GOARCH=amd64 go build ${{ env.FILE_NAME }}.go
+    - name: Display
+      run: ls -lrt 
+      
