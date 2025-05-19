@@ -4,16 +4,17 @@ env:
   FILE_NAME: hello-server
 jobs:
   build:
-    name: build go ${{env.FILE_NAME}}
+    name: build for linux and windows
     runs-on: ubuntu-latest
     steps:
     - name: checkout code
       uses: actions/checkout@v4.2.2
-
+    - name: Display 1
+      run: ls -lrt 
     - name: build ${{env.FILE_NAME}} for linux
       run: go build ${{ env.FILE_NAME }}.go
     - name: build ${{env.FILE_NAME}} for windows 
       run: GOOS=windows GOARCH=amd64 go build ${{ env.FILE_NAME }}.go
-    - name: Display
+    - name: Display 2
       run: ls -lrt 
       
