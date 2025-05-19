@@ -31,10 +31,12 @@ jobs:
         env:
           name: neu
           loc: pari
+          RUNNER_OS: Unknown
         run: |
           echo Displaying env vars
           echo "GITHUB_PATH: ${{ github.path }}"
           echo "NAME: ${{env.name}}"
+          echo "RUNNER_OS: ${{env.RUNNER_OS}}"
 
 
         
