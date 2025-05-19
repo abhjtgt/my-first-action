@@ -25,4 +25,11 @@ jobs:
         retention-days: 5
         compression-level: 6
         overwrite: false
-      
+    - name: upload windows
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        name: windows
+        path: ${{ env.FILE_NAME }}.exe
+        retention-days: 5
+        compression-level: 6
+        overwrite: false
