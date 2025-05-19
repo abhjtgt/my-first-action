@@ -13,7 +13,7 @@ jobs:
   env-ubuntu:
     runs-on: ubuntu-latest
     steps:
-      - name: Displaying env vars
+      - name: Displaying env vars classic
         run: |
           echo Displaying env vars
           echo "GITHUB_ENV: $GITHUB_ENV"
@@ -25,6 +25,13 @@ jobs:
           echo "GITHUB_ACTOR: $GITHUB_ACTOR"
           echo "RUNNER_OS: $RUNNER_OS"
           echo "RUNNER_NAME: $RUNNER_NAME"
+          echo "Name: $name"
+          echo "LOC: $loc"
+      - name: Displaying env vars adv
+        run: |
+          echo Displaying env vars
+          echo "GITHUB_PATH: ${{ github.path }}"
+          echo "NAME: ${{env.name}}"
 
 
         
