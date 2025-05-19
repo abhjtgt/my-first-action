@@ -28,6 +28,9 @@ jobs:
           echo "Name: $name"
           echo "LOC: $loc"
       - name: Displaying env vars adv
+        env:
+          name: neu
+          loc: pari
         run: |
           echo Displaying env vars
           echo "GITHUB_PATH: ${{ github.path }}"
