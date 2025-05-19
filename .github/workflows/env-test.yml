@@ -1,0 +1,30 @@
+name: environment man.
+env:
+    name: dkr
+    loc: ind
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  env-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Displaying env vars
+        run: |
+          echo Displaying env vars
+          echo "GITHUB_ENV: $GITHUB_ENV"
+          echo "GITHUB_PATH: $GITHUB_PATH"
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_SHA: $GITHUB_SHA"
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          echo "RUNNER_OS: $RUNNER_OS"
+          echo "RUNNER_NAME: $RUNNER_NAME"
+
+
+        
