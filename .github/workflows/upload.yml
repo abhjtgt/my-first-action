@@ -1,7 +1,7 @@
 name: upload artifact
 on: [push]
 env:
-  FILE_NAME: filename
+  FILE_NAME: test.sh
 jobs:
   main:
     runs-on: ubuntu-latest
